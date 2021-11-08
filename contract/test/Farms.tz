@@ -1,0 +1,130 @@
+{ parameter
+    (or (pair %addFarm
+           (pair (address %farm_address) (string %farm_lp_info))
+           (address %lp_address))
+        (unit %nothing)) ;
+  storage
+    (pair (pair (address %admin) (set %all_farms address))
+          (pair (big_map %all_farms_data
+                   address
+                   (pair (string %farm_lp_info) (address %lp_address)))
+                (big_map %inverse_farms address (map address string)))) ;
+  code { NIL operation ;
+         SWAP ;
+         UNPAIR ;
+         IF_LEFT
+           { SWAP ;
+             DUP ;
+             DUG 2 ;
+             CAR ;
+             CAR ;
+             SENDER ;
+             COMPARE ;
+             EQ ;
+             IF {} { PUSH string "Only admin" ; FAILWITH } ;
+             PUSH mutez 0 ;
+             AMOUNT ;
+             COMPARE ;
+             GT ;
+             IF { PUSH string "This smart contract does not accept tez" ; FAILWITH } {} ;
+             SWAP ;
+             DUP ;
+             DUG 2 ;
+             CDR ;
+             DUP 3 ;
+             CAR ;
+             CDR ;
+             DUP 3 ;
+             CAR ;
+             CAR ;
+             PUSH bool True ;
+             SWAP ;
+             UPDATE ;
+             DUP 4 ;
+             CAR ;
+             CAR ;
+             PAIR ;
+             PAIR ;
+             DUP ;
+             CDR ;
+             CDR ;
+             DUP 4 ;
+             CDR ;
+             CAR ;
+             DUP 4 ;
+             CDR ;
+             DUP 5 ;
+             CAR ;
+             CDR ;
+             PAIR ;
+             DUP 5 ;
+             CAR ;
+             CAR ;
+             SWAP ;
+             SOME ;
+             SWAP ;
+             UPDATE ;
+             PAIR ;
+             SWAP ;
+             CAR ;
+             PAIR ;
+             DUP 3 ;
+             CDR ;
+             CDR ;
+             DUP 3 ;
+             CDR ;
+             GET ;
+             IF_NONE
+               { DIG 2 ;
+                 CDR ;
+                 CDR ;
+                 EMPTY_MAP address string ;
+                 DUP 4 ;
+                 CAR ;
+                 CDR ;
+                 DUP 5 ;
+                 CAR ;
+                 CAR ;
+                 SWAP ;
+                 SOME ;
+                 SWAP ;
+                 UPDATE ;
+                 DIG 3 ;
+                 CDR ;
+                 SWAP ;
+                 SOME ;
+                 SWAP ;
+                 UPDATE }
+               { DIG 3 ;
+                 CDR ;
+                 CDR ;
+                 SWAP ;
+                 DUP 4 ;
+                 CAR ;
+                 CDR ;
+                 DUP 5 ;
+                 CAR ;
+                 CAR ;
+                 SWAP ;
+                 SOME ;
+                 SWAP ;
+                 UPDATE ;
+                 DIG 3 ;
+                 CDR ;
+                 SWAP ;
+                 SOME ;
+                 SWAP ;
+                 UPDATE } ;
+             SWAP ;
+             DUP ;
+             DUG 2 ;
+             CDR ;
+             CAR ;
+             PAIR ;
+             SWAP ;
+             CAR ;
+             PAIR ;
+             SWAP ;
+             PAIR }
+           { DROP ; SWAP ; PAIR } } }
+
