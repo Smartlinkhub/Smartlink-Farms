@@ -2,7 +2,7 @@
 ### *The farming tool for Vortex, the Smartlink DEX !*
 
 ![Vortex logo](https://gateway.pinata.cloud/ipfs/QmVXQPciUTUCtJ6Np8EojVbGzDou2XHK8PFDW25SLn5xu4/Logos/Dark%20logo/Logo%20Smartlink%20Darkpng.png)
-
+<img src="https://gateway.pinata.cloud/ipfs/QmVXQPciUTUCtJ6Np8EojVbGzDou2XHK8PFDW25SLn5xu4/Logos/Dark%20logo/Logo%20Smartlink%20Darkpng.png" alt="smartlink" width="534" height="136.9">
 
 
 ## Summary
