@@ -1,7 +1,7 @@
 # SMAK_Farming
 ### *The farming tool for Vortex, the Smartlink DEX !*
 
-![Vortex logo](https://gateway.pinata.cloud/ipfs/QmSMzh5JEuPgPNHns9Svk25aPwQn2NtR1TFkd7n3mj2Ktp)
+![Vortex logo](https://gateway.pinata.cloud/ipfs/QmVXQPciUTUCtJ6Np8EojVbGzDou2XHK8PFDW25SLn5xu4/Logos/Dark%20logo/Logo%20Smartlink%20Darkpng.png)
 
 
 
